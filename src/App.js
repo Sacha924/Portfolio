@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import "./App.css";
-import Card from "./Card";
+import "./styles/App.css";
+import Card from "./Components/Card";
 
 export default function App() {
   const listRef = useRef(null);
