@@ -20,16 +20,18 @@
   align-items: center;
   text-align: center;
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: rgb(88 199 250 / 30%);
   cursor: pointer;
   font-family: cursive;
   margin-right: 100px;
+  margin-left: 100px;
+  transition: color 1s;
 }
 
 .card:hover {
   color: rgb(88 199 250 / 100%);
-  transition: color 1s;
+  transition: color 2s;
   /* filter: brightness(100%); */
 }
 .card:hover:before,
@@ -77,9 +79,14 @@
     --rotate: 360deg;
   }
 }
-
 .imageInCard {
-  width: 60%;
-  height: 60%;
+  /* width: 60%;
+  height: 60%; */
+  width: calc(var(--card-height) / 1.7);
+  height: calc(var(--card-height) / 1.7);
   filter: brightness(60%);
+  transition: filter 2s;
+}
+.card:hover .imageInCard {
+  filter: brightness(100%);
 }
