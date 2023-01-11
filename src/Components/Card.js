@@ -1,10 +1,17 @@
 import "../styles/Card.css";
+import { useState } from "react";
 
 export default function Card(props) {
+  const [isRotated, setIsRotated] = useState(false);
+
+  const handleClick = () => {
+    setIsRotated(!isRotated);
+    console.log("isRotated: " + isRotated);
+  };
   return (
-    <div className="App">
-      <div className="card">
-        <div className="container">
+    <div className={`card ${isRotated ? "rotated" : ""}`} onClick={handleClick}>
+      {!isRotated ? (
+        <div>
           <h1 className="title">{props.name}</h1>
           <img className="imageInCard" src={`images/${props.image}`} />
           <div className="easterEgg">
@@ -14,14 +21,21 @@ export default function Card(props) {
             {props.skillDev &&
               props.skillDev.map((skill) => {
                 return (
-                  <p className="skill" data-skill={skill}>
+                  <div className="skill" data-skill={skill}>
                     {skill}
-                  </p>
+                  </div>
                 );
               })}
           </div>
         </div>
-      </div>
+      ) : (
+        <div>
+          <h1 className="title">{props.name}</h1>
+          <p style={{fontFamily:"Georgia"}}>ceci est un test, ce paragraphe</p>
+          
+
+        </div>
+      )}
     </div>
   );
 }
