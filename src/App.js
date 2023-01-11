@@ -14,14 +14,14 @@ export default function App() {
 
   return (
     <div className="App" ref={listRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
-      <Card name="NFTS" image="shibaNFT.png" />
-      <Card name="gomoku" image="gomoku.png" />
-      <Card name="Lottery" image="Lottery.png" />
-      <Card name="VOLTZ" image="VOLTZ.png" />
-      <Card name="ETH Changes" image="ETH_Price.png" />
-      <Card name="The Maze" image="The_Maze.png" />
-      <Card name="Social Network" image="socialNetwork.png" />
-      <Card name="VeloMax" image="VeloMax.png" />
+      <Card name="NFTS" image="shibaNFT.png" skillDev={["IPFS", "Solidity"]} />
+      <Card name="gomoku" image="gomoku.png" skillDev={["AI", "Python"]} />
+      <Card name="Lottery" image="Lottery.png" skillDev={["Chainlink VRF", "Next.Js", "Solidity"]} />
+      <Card name="VOLTZ" image="VOLTZ.png" skillDev={["NFT"]} />
+      <Card name="ETH Changes" image="ETH_Price.png" skillDev={["SQLite", "Next.Js", "Bash"]} />
+      <Card name="The Maze" image="The_Maze.png" skillDev={["C#"]} />
+      <Card name="Social Network" image="socialNetwork.png" skillDev={["PHP"]} />
+      <Card name="VeloMax" image="VeloMax.png" skillDev={["SQL", "C#"]} />
     </div>
   );
 }

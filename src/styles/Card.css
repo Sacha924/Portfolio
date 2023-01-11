@@ -79,6 +79,7 @@
     --rotate: 360deg;
   }
 }
+
 .imageInCard {
   /* width: 60%;
   height: 60%; */
@@ -89,4 +90,54 @@
 }
 .card:hover .imageInCard {
   filter: brightness(100%);
+}
+.easterEgg {
+  opacity: 0;
+  padding: 5% 5% 5% 0%;
+}
+.skills {
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  position: absolute;
+  bottom: 0px;
+  right: 7%;
+  filter: brightness(60%);
+  transition: filter 2s;
+}
+.skill {
+  padding-left: 30px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  brightness: 60%;
+}
+
+.card:hover .skills {
+  filter: brightness(100%);
+}
+.skill[data-skill="Solidity"] {
+  background: #5da5da;
+}
+.skill[data-skill="Python"] {
+  background: #3572a5;
+}
+.skill[data-skill="C#"] {
+  background: #178600;
+}
+.skill[data-skill="Bash"] {
+  background: #000000;
+}
+.skill[data-skill="PHP"] {
+  background: #4f5d95;
+}
+.skill:not([data-skill="Solidity"]):not([data-skill="Python"]):not([data-skill="C#"]):not([data-skill="Bash"]):not([data-skill="PHP"]) {
+  background: blue;
 }
