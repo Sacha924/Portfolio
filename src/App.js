@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./styles/App.css";
 import Card from "./Components/Card";
 
@@ -65,19 +65,35 @@ const cards = [
 
 export default function App() {
   const listRef = useRef(null);
+  const [intervalId, setIntervalId] = useState(20);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     listRef.current.scrollLeft += 1;
-  //   }, 20);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      listRef.current.scrollLeft += 1;
+    }, intervalId);
+    return () => clearInterval(interval);
+  }, [intervalId]);
+
+  const handleKeyPress = (e) => {
+    if (e.key === "ArrowRight") {
+      listRef.current.scrollLeft += 200;
+    } else if (e.key === "ArrowLeft") {
+      listRef.current.scrollLeft -= 200;
+    } else if (e.key === " ") {
+      if (intervalId != 1e9) setIntervalId(1e9);
+      else setIntervalId(20);
+    }
+  };
 
   return (
-    <div className="App" ref={listRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
-      {cards.map((card) => (
-        <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} />
-      ))}
+    <div className="App" onKeyDown={handleKeyPress} tabIndex="0">
+      <div className="CardList" ref={listRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
+        {cards.map((card) => (
+          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} />
+        ))}
+      </div>
+      <button style={{ background: "blue", width: "200px", height: "200px" }}> yo </button>
+      <p style={{ background: "blue", width: "200px", height: "200px" }}> YO LE GANG </p>
     </div>
   );
 }

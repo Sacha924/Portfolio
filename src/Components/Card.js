@@ -7,7 +7,6 @@ export default function Card(props) {
   const [showIframe, setShowIframe] = useState(false);
   const iframeRef = useRef(null);
 
-  console.log("isRotated: " + isRotated);
 
   const handleClick = () => {
     setIsRotated(!isRotated);

@@ -10,9 +10,23 @@ body {
   /* box-sizing: border-box; */
   overflow: hidden;
 }
-.App {
+.CardList {
   padding-top: 1%;
-  min-height: 100vh;
   display: grid;
   grid-auto-flow: column;
+  padding-bottom: 200px;
 }
+.CardList::-webkit-scrollbar {
+  display: none;
+  width: 0.2em;
+  background-color: #f5f5f5;
+}
+
+.CardList::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+.App:focus {
+  outline: none;
+}
+
+
