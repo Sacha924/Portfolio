@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 
 export default function Card(props) {
   const [isRotated, setIsRotated] = useState(false);
+  const [hasBeenRotated, setHasBeenRotated] = useState(false);
   const [showIframe, setShowIframe] = useState(false);
   const iframeRef = useRef(null);
 
@@ -10,6 +11,7 @@ export default function Card(props) {
 
   const handleClick = () => {
     setIsRotated(!isRotated);
+    setHasBeenRotated(true);
   };
   const handleIframe = (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ export default function Card(props) {
 
   return (
     <div>
-      <div className={`card ${isRotated ? "rotated" : ""}`} onClick={handleClick}>
+      <div className={`card ${isRotated ? "rotated" : hasBeenRotated ? "reverse" : ""}`} onClick={handleClick}>
         {!isRotated ? (
           <div>
             <h1 className="title">{props.project_name}</h1>
