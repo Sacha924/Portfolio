@@ -12,7 +12,7 @@ export default function Card(props) {
     <div className={`card ${isRotated ? "rotated" : ""}`} onClick={handleClick}>
       {!isRotated ? (
         <div>
-          <h1 className="title">{props.name}</h1>
+          <h1 className="title">{props.project_name}</h1>
           <img className="imageInCard" src={`images/${props.image}`} />
           <div className="easterEgg">
             <a href="https://dino-chrome.com/fr">Easter egg</a>
@@ -29,11 +29,20 @@ export default function Card(props) {
           </div>
         </div>
       ) : (
-        <div>
-          <h1 className="title">{props.name}</h1>
-          <p style={{fontFamily:"Georgia"}}>ceci est un test, ce paragraphe</p>
-          
-
+        <div className="rotated-container">
+          <h1 className="title">{props.project_name}</h1>
+          <div className="projectDescription" dangerouslySetInnerHTML={{ __html: props.description }} />
+          <a href={props.githubLink}>yo le gang</a>
+          <div className="skills">
+            {props.skillDev &&
+              props.skillDev.map((skill) => {
+                return (
+                  <div className="skill" data-skill={skill}>
+                    {skill}
+                  </div>
+                );
+              })}
+          </div>
         </div>
       )}
     </div>
