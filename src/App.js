@@ -38,7 +38,7 @@ const cards = [
     skillDev: ["SQLite", "Next.Js", "Bash"],
     description:
       "it's a nextJS application that retrieves every 10 minutes the price of ethereum,<br/> and that will detect thanks to a 95% confidence interval, if the price is <br/> considered  as an anomaly or not. <br/><br/><br/>The project is divided into several parts:<br/><br/><ul><li>Filling the database: a bash script allows us to get data from an API,<br/> store this data in our DataBase, and then check if the data is <br/> abnormal and send a message if this is the case.<br/><br/><br/></li><li>Check if the data is abnormal: Another bash script allows us, by <br/> calling the same API (with a different entry point), to get the price <br/> of the ETH over the last month, at each hour. This data is stored in<br/> a txt file, and can be used to detect abnormal prices using the <br/> z-score, which is a measure of the number of standard deviations of <br/> a data point from the mean of a data set.</li></ul>",
-    githubLink: "",
+    githubLink: "https://github1s.com/Sacha924/ETH-Price-Variation",
   },
   {
     project_name: "The Maze",
@@ -66,13 +66,16 @@ const cards = [
 export default function App() {
   const listRef = useRef(null);
   const [intervalId, setIntervalId] = useState(20);
+  const [showIframe, setShowIframe] = useState(false);
 
   useEffect(() => {
+    if (showIframe) setIntervalId(1e9);
+    else setIntervalId(20);
     const interval = setInterval(() => {
       listRef.current.scrollLeft += 1;
     }, intervalId);
     return () => clearInterval(interval);
-  }, [intervalId]);
+  }, [intervalId, showIframe]);
 
   const handleKeyPress = (e) => {
     if (e.key === "ArrowRight") {
@@ -89,11 +92,10 @@ export default function App() {
     <div className="App" onKeyDown={handleKeyPress} tabIndex="0">
       <div className="CardList" ref={listRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
         {cards.map((card) => (
-          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} />
+          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} parentCallback={setShowIframe} showIframe={showIframe} />
         ))}
       </div>
-      <button style={{ background: "blue", width: "200px", height: "200px" }}> yo </button>
-      <p style={{ background: "blue", width: "200px", height: "200px" }}> YO LE GANG </p>
+      <p style={{ background: "blue", width: "100px", height: "100px" }}> YO LE GANG </p>
     </div>
   );
 }
