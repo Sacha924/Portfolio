@@ -100,6 +100,7 @@
   transition: transform 1.2s ease, margin 1.5s ease-in-out;
   margin-left: 380px;
   margin-right: 380px;
+  margin-bottom: 50px;
 }
 .card.reverse {
   animation: none;
