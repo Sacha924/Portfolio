@@ -3,9 +3,8 @@ import "./styles/App.css";
 import Card from "./Components/Card";
 import SkillBox from "./Components/SkillBox";
 
-const cards = require("./projectDatas.json");
-
-const skillList = [{ name: "HTML" }, { name: "css" }, { name: "JS" }, { name: "Python" }, { name: "C#" }, { name: "SQL" }, { name: "PHP" }, { name: "Solidity" }, { name: "Node.js" }, { name: "React.js" }, { name: "Next.js" }, { name: "SQLite" }, { name: "NPM" }, { name: "VSCode" }, { name: "Git" }, { name: "Docker" }];
+const cards = require("./datas/projectDatas.json");
+const skillList = require("./datas/skillsData.json");
 
 export default function App() {
   const cardListRef = useRef(null);
@@ -15,14 +14,17 @@ export default function App() {
   const [showIframe, setShowIframe] = useState(false);
 
   useEffect(() => {
-    if (showIframe) setIntervalId(1e9);
-    else setIntervalId(20);
     const interval = setInterval(() => {
       skillListRef.current.scrollLeft += 1;
       cardListRef.current.scrollLeft += 1;
     }, intervalId);
     return () => clearInterval(interval);
-  }, [intervalId, showIframe]);
+  }, [intervalId]);
+
+  useEffect(() => {
+    if (showIframe) setIntervalId(1e9);
+    else setIntervalId(20);
+  }, [showIframe]);
 
   const handleKeyPress = (e) => {
     if (e.key === "ArrowRight") {
@@ -43,9 +45,7 @@ export default function App() {
         ))}
       </div>
       <div className="CompetenceList" ref={skillListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
-        {skillList.map((skill) => (
-          <SkillBox name={skill.name} />
-        ))}
+          <SkillBox skillList={skillList} />
       </div>
     </div>
   );
