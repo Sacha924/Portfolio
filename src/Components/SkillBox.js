@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./../styles/SkillBox.css";
 
 export default function SkillBox(props) {
-  const [currentIndex, setCurrentIndex] = useState(10);
+  const [currentIndex, setCurrentIndex] = useState(11);
   console.log(props.skillList);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((currentIndex + 1));
-    }, 1000);
+    }, 4200);
     return () => clearInterval(interval);
   }, [currentIndex]);
 

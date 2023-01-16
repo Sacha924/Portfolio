@@ -17,14 +17,14 @@
     "project_name": "Lottery",
     "image": "Lottery.png",
     "skillDev": ["Chainlink VRF", "Next.Js", "Solidity"],
-    "description": "<p>It's a decentralized application for which I made the smart contracts and the<br/>front-end, where people can enter the lottery. then a winner is drawn, he wins <br/>the totality of the money in the lottery (constituted by the entry fees paid by<br/> the participants). to know who wins I used a protocol which allows to generate<br/> random numbers verifiable on the blockchain which is chainlink VRF. And for the<br/> front end I created a next application and used the Moralis library to make the<br/> connection between the smart contract and the front end.</p>",
+    "description": "<p>It's a decentralized application for which I made the smart contracts and the<br/><br/><br/>front-end, where people can enter the lottery. then a winner is drawn, he wins <br/><br/><br/>the totality of the money in the lottery (constituted by the entry fees paid by<br/><br/><br/> the participants). to know who wins I used a protocol which allows to generate<br/><br/><br/> random numbers verifiable on the blockchain which is chainlink VRF. And for the<br/><br/><br/> front end I created a next application and used the Moralis library to make the<br/><br/><br/> connection between the smart contract and the front end.</p>",
     "githubLink": "https://github1s.com/Sacha924/Lottery_SM-UX"
   },
   {
     "project_name": "VOLTZ",
     "image": "VOLTZ.png",
     "skillDev": ["NFT"],
-    "description": "A COMPLETER",
+    "description": "I put this VOLTZ as a tribute to my first nft. <br/><br/<br/><br/>VOLTZ are metaverse focused, identity-thought and state of the art avatars.<br/><br/><br/><br/>You can learn more about the project by clicking on <a href='https://linktr.ee/voltz_me'>this link </a>",
     "githubLink": ""
   },
   {
@@ -38,21 +38,21 @@
     "project_name": "The Maze",
     "image": "The_Maze.png",
     "skillDev": ["C#"],
-    "description": "",
-    "githubLink": ""
+    "description": "A project only code in C# where you are in a maze and the goal is to find the exit.<br/><br/><br/>If you want to learn more about this project and see how it works, feel free to play <br/><br/><br/>All the rules are explain when you start the game !",
+    "githubLink": "https://github1s.com/Sacha924/DataStructureProject/tree/master/Labyrinth_Game"
   },
   {
     "project_name": "Social Network",
     "image": "socialNetwork.png",
     "skillDev": ["PHP"],
-    "description": "",
-    "githubLink": ""
+    "description": "this is the biggest php project I've ever done. Leading a team of 4 students, the <br/><br/><br/>goal was to create a new social network, where people could create an account, post<br/><br/><br/> content, and do every action imaginable on a social network",
+    "githubLink": "https://github1s.com/Sacha924/Web-Development-Project"
   },
   {
     "project_name": "VeloMax",
     "image": "VeloMax.png",
     "skillDev": ["SQL", "C#"],
-    "description": "",
-    "githubLink": ""
+    "description": "Starting with the creation of association entity schemas, and ending with the export <br/><br/><br/> to XML / JSON of our database tables, this project answers a fictitious request <br/><br/><br/> from a client. The mission was to create an efficient database management system <br/><br/><br/> for very specific needs.",
+    "githubLink": "https://github1s.com/Sacha924/VeloMax"
   }
 ]

@@ -45,7 +45,7 @@ export default function App() {
         ))}
       </div>
       <div className="CompetenceList" ref={skillListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
-          <SkillBox skillList={skillList} />
+        <SkillBox skillList={skillList} />
       </div>
     </div>
   );

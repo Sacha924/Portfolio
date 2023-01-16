@@ -42,8 +42,8 @@ export default function Card(props) {
             <h1 className="title">{props.project_name}</h1>
             <div className="projectDescription" dangerouslySetInnerHTML={{ __html: props.description }} />
             {props.githubLink !== "" && (
-              <a href={props.githubLink} onClick={(e) => handleIframe(e)}>
-                yo le gang
+              <a style ={{marginTop:"75px", fontSize:"15px"}} href={props.githubLink} onClick={(e) => handleIframe(e)}>
+                Open project source code
               </a>
             )}
             <div className="skills">
