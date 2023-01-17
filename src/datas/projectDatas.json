@@ -43,7 +43,7 @@
   },
   {
     "project_name": "Social Network",
-    "image": "socialNetwork.png",
+    "image": "SocialNetwork.png",
     "skillDev": ["PHP"],
     "description": "this is the biggest php project I've ever done. Leading a team of 4 students, the <br/><br/><br/>goal was to create a new social network, where people could create an account, post<br/><br/><br/> content, and do every action imaginable on a social network",
     "githubLink": "https://github1s.com/Sacha924/Web-Development-Project"
