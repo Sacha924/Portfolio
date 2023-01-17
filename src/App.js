@@ -11,7 +11,7 @@ export default function App() {
   const skillListRef = useRef(null);
 
   const [intervalId, setIntervalId] = useState(20);
-  const [showIframe, setShowIframe] = useState(false);
+  const [isIframeOpen, setIsIframeOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,9 +22,9 @@ export default function App() {
   }, [intervalId]);
 
   useEffect(() => {
-    if (showIframe) setIntervalId(1e9);
+    if (isIframeOpen) setIntervalId(1e9);
     else setIntervalId(20);
-  }, [showIframe]);
+  }, [isIframeOpen]);
 
   const handleKeyPress = (e) => {
     if (e.key === "ArrowRight") {
@@ -41,7 +41,7 @@ export default function App() {
     <div className="App" onKeyDown={handleKeyPress} tabIndex="0">
       <div className="CardList" ref={cardListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
         {cards.map((card) => (
-          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} parentCallback={setShowIframe} showIframe={showIframe} />
+          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} parentCallback={setIsIframeOpen} isIframeOpen={isIframeOpen} />
         ))}
       </div>
       <div className="CompetenceList" ref={skillListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
