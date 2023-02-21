@@ -119,6 +119,49 @@
   opacity: 0;
   padding: 5% 5% 5% 0%;
 }
+/* .cardBottomRow {
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: space-between;
+  position: absolute;
+  bottom: 0px;
+  right: 7%;
+  filter: brightness(60%);
+  transition: filter 2s;
+} */
+
+.traductForm {
+  position: absolute;
+  bottom: 2%;
+  left: 7%;
+}
+.traductForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.traductForm input {
+  width: 40px;
+  font-size: 7px;
+}
+.traductButton {
+  background-color: #1d3f5e;
+  color: white;
+  margin-top: 2px;
+  padding: 5px 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0px 5px 10px #888888;
+  transition: all 0.4s ease-in-out;
+}
+.traductButton:hover {
+  background-color: #3e738e;
+  cursor: pointer;
+}
+
 .skills {
   color: red;
   display: flex;
@@ -203,7 +246,7 @@ div {
   font-family: "Arial";
 } */
 .rotated-container .projectDescription {
-  width: 350px; 
+  width: 350px;
   display: block;
   margin: 0 auto;
   font-size: calc(1rem * 1 / var(--card-scale));
@@ -248,17 +291,17 @@ div {
   bottom: 6.2%;
   right: 3.4%;
   z-index: 3;
-  background-color: #1d3f5e; /* a nice shade of blue */
-  color: white; /* text color */
-  padding: 5px 5px; /* button padding */
-  border-radius: 5px; /* rounded corners */
-  text-decoration: none; /* remove underline */
-  font-weight: bold; /* bold text */
-  box-shadow: 0px 5px 10px #888888; /* subtle drop shadow */
-  transition: all 0.4s ease-in-out; /* smooth hover transition */
+  background-color: #1d3f5e;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0px 5px 10px #888888;
+  transition: all 0.4s ease-in-out;
 }
 .exitButton:hover {
-  background-color: #3e738e; /* a nice shade of blue */
+  background-color: #3e738e;
   transform: translateY(-4px);
   cursor: pointer;
 }
