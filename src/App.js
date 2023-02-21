@@ -40,8 +40,8 @@ export default function App() {
   return (
     <div className="App" onKeyDown={handleKeyPress} tabIndex="0">
       <div className="CardList" ref={cardListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>
-        {cards.map((card) => (
-          <Card project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} parentCallback={setIsIframeOpen} isIframeOpen={isIframeOpen} />
+        {cards.map((card,key) => (
+          <Card key={key} project_name={card.project_name} image={card.image} skillDev={card.skillDev} description={card.description} githubLink={card.githubLink} parentCallback={setIsIframeOpen} isIframeOpen={isIframeOpen} />
         ))}
       </div>
       <div className="CompetenceList" ref={skillListRef} style={{ overflowX: "scroll", whiteSpace: "nowrap", overflowY: "hidden" }}>

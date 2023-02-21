@@ -197,11 +197,11 @@
   text-decoration-skip: spaces;
   text-decoration-skip-ink: auto;
 }
-p,
+/* p,
 h1,
 div {
-  fontfamily: "Arial";
-}
+  font-family: "Arial";
+} */
 .rotated-container .projectDescription {
   width: 350px; 
   display: block;

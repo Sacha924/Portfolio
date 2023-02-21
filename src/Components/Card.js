@@ -19,6 +19,8 @@ export default function Card(props) {
     setShowIframe(!showIframe);
   };
 
+  
+
   return (
     <div>
       <div className={`card ${isRotated ? "rotated" : hasBeenRotated ? "reverse" : ""}`} onClick={handleClick}>
@@ -31,9 +33,9 @@ export default function Card(props) {
             </div>
             <div className="skills">
               {props.skillDev &&
-                props.skillDev.map((skill) => {
+                props.skillDev.map((skill, key) => {
                   return (
-                    <div className="skill" data-skill={skill}>
+                    <div key={key} className="skill" data-skill={skill}>
                       {skill}
                     </div>
                   );
@@ -51,9 +53,9 @@ export default function Card(props) {
             )}
             <div className="skills">
               {props.skillDev &&
-                props.skillDev.map((skill) => {
+                props.skillDev.map((skill, key) => {
                   return (
-                    <div className="skill" data-skill={skill}>
+                    <div key={key} className="skill" data-skill={skill}>
                       {skill}
                     </div>
                   );
@@ -65,7 +67,6 @@ export default function Card(props) {
       {showIframe && (
         <>
           <iframe className="myFrame" ref={iframeRef} src={props.githubLink} />
-          {console.log(props.githubLink)}
 
           <button className="exitButton" onClick={(e) => handleIframe(e)}>
             EXIT

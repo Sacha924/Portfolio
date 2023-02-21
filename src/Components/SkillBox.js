@@ -3,7 +3,6 @@ import "./../styles/SkillBox.css";
 
 export default function SkillBox(props) {
   const [currentIndex, setCurrentIndex] = useState(11);
-  console.log(props.skillList);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((currentIndex + 1));
@@ -13,7 +12,7 @@ export default function SkillBox(props) {
 
   const rendered = [];
   for (let i = 0; i < currentIndex; i++) {
-    rendered.push(<img className="competence" src={props.skillList[i % props.skillList.length].imageLink} />);
+    rendered.push(<img key={i} className="competence" src={props.skillList[i % props.skillList.length].imageLink} />);
   }
 
   return (
