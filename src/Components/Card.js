@@ -5,6 +5,7 @@ export default function Card(props) {
   const [isRotated, setIsRotated] = useState(false);
   const [hasBeenRotated, setHasBeenRotated] = useState(false);
   const [showIframe, setShowIframe] = useState(false);
+  const [currentDescription, setCurrentDescription] = useState(props.description);
 
   const iframeRef = useRef(null);
 
@@ -19,7 +20,28 @@ export default function Card(props) {
     setShowIframe(!showIframe);
   };
 
-  
+  const getTraduction = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const targetLang = e.target.elements.text.value.toUpperCase();
+
+    if (["FR", "ES", "EN", "SK"].includes(targetLang)) {
+      // if targetLang is either "FR", "EN", "ES",  or "SK", translate the text
+      const url = "http://esilv.olfsoftware.fr:8080/v2/translate";
+      const body = new URLSearchParams();
+      body.append("text", currentDescription);
+      body.append("target_lang", targetLang);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body.toString(),
+      });
+      const data = await response.json();
+      setCurrentDescription(data.translations[0].text);
+    } else console.log("Please enter a valid language code");
+  };
 
   return (
     <div>
@@ -45,21 +67,29 @@ export default function Card(props) {
         ) : (
           <div className="rotated-container">
             <h1 className="title">{props.project_name}</h1>
-            <div className="projectDescription" dangerouslySetInnerHTML={{ __html: props.description }} />
+            <div className="projectDescription" dangerouslySetInnerHTML={{ __html: currentDescription }} />
             {props.githubLink !== "" && (
               <a style={{ marginTop: "75px", fontSize: "15px" }} href={props.githubLink} onClick={(e) => handleIframe(e)}>
                 Open project source code
               </a>
             )}
-            <div className="skills">
-              {props.skillDev &&
-                props.skillDev.map((skill, key) => {
-                  return (
-                    <div key={key} className="skill" data-skill={skill}>
-                      {skill}
-                    </div>
-                  );
-                })}
+            <div className="cardBottomRow">
+              <div className="traductForm">
+                <form onSubmit={getTraduction}>
+                  <input onClick={(e) => e.stopPropagation()} type="text" name="text" placeholder="EN" />
+                  <input className="traductButton" onClick={(e) => e.stopPropagation()} type="submit" value="Traduct" />
+                </form>
+              </div>
+              <div className="skills">
+                {props.skillDev &&
+                  props.skillDev.map((skill, key) => {
+                    return (
+                      <div key={key} className="skill" data-skill={skill}>
+                        {skill}
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
           </div>
         )}
